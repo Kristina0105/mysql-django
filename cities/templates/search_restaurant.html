@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="search-restaurant-form">
+ <h1>Search Results</h1>
+    <form class="search-form" method="GET" action="{% url 'search_r' %}">
+        {{ form }}
+        <button class="search-button" type="submit">Search</button>
+    </form>
+    <table class="restaurant-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Specialization</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for restaurant in restaurants %}
+            <tr>
+                <td>{{ restaurant.name }}</td>
+                <td>{{ restaurant.specialization }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<style>
+.search-restaurant-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.search-restaurant-form h2 {
+    color: #333;
+}
+.search-restaurant-form form {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-restaurant-form form label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+
+.search-form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-form input[type="text"],
+.search-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.search-button {
+    padding: 10px 20px;
+    background-color: #1e90ff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #007bff;
+}
+
+.restaurant-table {
+  margin-top: 13px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.restaurant-table th,
+.restaurant-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.restaurant-table th {
+  background-color:  #243c6a;
+}
+
+.restaurant-table td {
+  background-color:  #f4eeba;
+  color: black;
+}
+</style>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="delete-restaurant">
+        <h2>Delete Restaurant</h2>
+        <p>Are you sure you want to delete "{{ restaurant }}"?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Confirm</button>
+        </form>
+    </div>
+
+
+<style>
+
+.delete-restaurant {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.delete-restaurant h2 {
+    color: #333;
+}
+
+.delete-restaurant p {
+    margin-bottom: 20px;
+}
+
+.delete-restaurant form button {
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-restaurant form button:hover {
+    background-color: #c82333;
+}
+</style>
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="add-restaurant-form">
+        <h2>Add Restaurant</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save</button>
+        </form>
+    </div>
+
+<style>
+.add-restaurant-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.add-restaurant-form h2 {
+    color: #333;
+}
+
+.add-restaurant-form form {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-restaurant-form form label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.add-restaurant-form form input[type="text"],
+.add-restaurant-form form input[type="url"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.add-restaurant-form form button {
+    padding: 10px 20px;
+    background-color: #1e90ff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-restaurant-form form button:hover {
+    background-color: #007bff;
+}
+</style>
+{% endblock %}
